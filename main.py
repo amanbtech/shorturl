@@ -53,9 +53,12 @@ def data(url:Urls,credentials=Depends(security)):
         algorithms=[ALGORITHMS]
     )
     username = payload["username"]
-    count = r.incr(f"rate_limit:{username}")
-    if count == 1:
-        r.expire(f"rate_limit:{username}", 60)
+    try:
+        count = r.incr(f"rate_limit:{username}")
+        if count == 1:
+            r.expire(f"rate_limit:{username}", 60)
+    except redis.ConnectionError:
+        count = 1  # Bypass rate limiting if Redis is down
     if count >5:
         raise HTTPException(status_code=429,detail="too many request")
     if url.custom_code:
