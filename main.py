@@ -1,7 +1,9 @@
-from click import password_option
+
 from fastapi import FastAPI,HTTPException
 from pydantic import BaseModel, HttpUrl
 from fastapi import Header
+from fastapi.security import HTTPBearer
+from fastapi import Depends
 from fastapi.responses import RedirectResponse
 from typing import Optional
 from jose import jwt
@@ -15,14 +17,16 @@ import bcrypt
 import redis
 import  os
 from dotenv import load_dotenv
+
 load_dotenv()
 app=FastAPI()
+security = HTTPBearer()
 SECRET_KEY=os.getenv("SECRET_KEYenv")
 ALGORITHMS=os.getenv("ALGORITHMSenv")
 conn=sqlite3.connect("project1.db",check_same_thread=False)
 pool = redis.ConnectionPool(
     host=os.getenv("hostenv"),
-    port=int(os.getenv("portenv")),
+    port=int(os.getenv("portenv","6379")),
     password=os.getenv("passwordenv"),
     username=os.getenv("usernameenv"),
     decode_responses=True,
@@ -39,9 +43,9 @@ conn.commit()
 def short_coder():
     return "".join(random.choices(string.ascii_letters+string.digits,k=6))
 @app.post("/data_save")
-def data(url:Urls,authorization: str = Header(...)):
+def data(url:Urls,credentials=Depends(security)):
 
-    token = authorization.split()[1]
+    token = credentials.credentials
 
     payload = jwt.decode(
         token,
