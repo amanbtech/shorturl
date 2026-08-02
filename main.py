@@ -1,4 +1,4 @@
-
+from click import password_option
 from fastapi import FastAPI,HTTPException
 from pydantic import BaseModel, HttpUrl
 from fastapi import Header
@@ -23,6 +23,8 @@ conn=sqlite3.connect("project1.db",check_same_thread=False)
 pool = redis.ConnectionPool(
     host=os.getenv("hostenv"),
     port=int(os.getenv("portenv")),
+    password=os.getenv("passwordenv"),
+    username=os.getenv("usernameenv"),
     decode_responses=True,
     max_connections=20
 )
