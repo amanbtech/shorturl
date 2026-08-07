@@ -1,7 +1,6 @@
-from wsgiref.validate import assert_
 
 from fastapi.testclient import TestClient
-from redis.exceptions import AuthorizationError
+
 import uuid
 from main import  app
 client=TestClient(app)
@@ -27,7 +26,7 @@ def test_redirect():
     data_response = client.post(
         "/data_save",
         headers={
-            "Authorization": f"Bearer{token}"
+            "Authorization": f"Bearer {token}"
         },
         json={
             "original_url": "https://google.com",
@@ -38,12 +37,14 @@ def test_redirect():
     update_response=client.post(
         f"/update/{short_code}",
         headers={
-            "Authorization":f"Bearer{token}"
+            "Authorization":f"Bearer {token}"
         },
         json={
             "original_url": "https://youtube.com",
         }
     )
+    print(update_response.status_code)
+    print(update_response.text)
     print(update_response.json())
     assert update_response.json()["original_url"]== "https://youtube.com"
     
