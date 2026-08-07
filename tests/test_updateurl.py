@@ -46,5 +46,5 @@ def test_redirect():
     print(update_response.status_code)
     print(update_response.text)
     print(update_response.json())
-    assert update_response.json()["original_url"]== "https://youtube.com"
+    assert update_response.json()["original_url"]== "https://youtube.com/"
     

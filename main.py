@@ -264,8 +264,7 @@ def update_url(short_code:str,new_url:updateurl,authorization:str=Header(...)):
         raise HTTPException(status_code=500,detail="internal server error")
 
     return {
-        "status": "success",
-        "message": "URL updated sucessfully"
+        "original_url":new_url.original_url
 
     }
 
