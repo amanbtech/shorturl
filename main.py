@@ -7,7 +7,7 @@ from fastapi import Depends
 from fastapi.responses import RedirectResponse
 from typing import Optional
 from jose import jwt
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta,UTC
 from apscheduler.schedulers.background import BackgroundScheduler
 import  re
 import sqlite3
@@ -192,7 +192,7 @@ def signin(user:login):
 
     )
     print("brcrpty dat saved")
-    expire = datetime.utcnow() + timedelta(hours=1)
+    expire = datetime.now(UTC) + timedelta(hours=1)
     payload={
         "username":data[1],
         "role":data[4],
