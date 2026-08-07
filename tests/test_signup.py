@@ -5,8 +5,8 @@ client=TestClient(app)
 response=client.post(
     "/signup",
     json={
-            "username":"amandeep",
-            "email":"amanbtech@gmail.com",
+            "username":"amdeep",
+            "email":"amanech@gmail.com",
             "password_hash":"aman@123"
     }
 )
