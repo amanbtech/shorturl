@@ -11,4 +11,7 @@ response=client.post(
             "password_hash":"aman@123"
     }
 )
+print(response.status_code)
+print(response.text)
+print(response.json())
 assert response.status_code == 200
