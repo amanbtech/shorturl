@@ -167,7 +167,10 @@ def signup(user:signup):
             conn.commit()
         except Exception:
             raise HTTPException(status_code=500,detail="Internal server error")
+    return{
+        "message":"signin completed"
 
+   }
 
 class login(BaseModel):
     username: str
