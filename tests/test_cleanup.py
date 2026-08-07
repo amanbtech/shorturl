@@ -1,19 +1,22 @@
 from fastapi.testclient import TestClient
 from main import  app
 client=TestClient(app)
+import uuid
 def test_redirect():
+    name=f"text_{uuid.uuid4().hex}"
+    gmail=f"text_{uuid.uuid4().hex}@gmail.com"
     client.post(
         "/signup",
         json={
-            "username": "aman",
-            "email": "aman@gmail.com",
+            "username": name,
+            "email": gmail,
             "password_hash": "123456"
         }
     )
     login_response = client.post(
         "/login",
         json={
-            "username": "aman",
+            "username": name,
             "password_hash": "123456"
         }
     )
