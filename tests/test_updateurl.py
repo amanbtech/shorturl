@@ -34,7 +34,7 @@ def test_redirect():
         }
     )
     short_code=data_response.json()["short_code"]
-    update_response=client.post(
+    update_response=client.put(
         f"/update/{short_code}",
         headers={
             "Authorization":f"Bearer {token}"
