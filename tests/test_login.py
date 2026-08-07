@@ -8,7 +8,7 @@ from main import  app
 login_client=TestClient(app)
 name=f"text_{uuid.uuid4().hex}"
 gmail=f"text_{uuid.uuid4().hex}"
-def login():
+def test_login():
     login_client.post("/signup",json={
         "username":name,
         "email":gmail,

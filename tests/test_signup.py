@@ -2,16 +2,15 @@ from fastapi.testclient import TestClient
 from  main import app
 import uuid
 client=TestClient(app)
-
-response=client.post(
+def test_sign():
+   response=client.post(
     "/signup",
-    json={
+     json={
             "username":f"text_{uuid.uuid4().hex}",
             "email":f"text_{uuid.uuid4().hex}@example.com",
             "password_hash":"aman@123"
-    }
-)
-print(response.status_code)
-print(response.text)
-print(response.json())
-assert response.status_code == 200
+     }
+   )
+   assert response.status_code == 200
+
+
