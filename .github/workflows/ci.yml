@@ -3,8 +3,7 @@ on:
   push:
     branches:
       - main
-env:
-  DEPLOY_URL: ${{secrects.RENDER_DEPLOY_HOOK_URL}}
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -34,4 +33,4 @@ jobs:
       - name: DEPLOY to Render
         if: github.ref == 'refs/heads/main'
         run: |
-          curl "$DEPLOY_URL"
+          curl "${{ secrects.RENDER_DEPLOY_HOOK_URL }}"
