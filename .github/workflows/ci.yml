@@ -3,11 +3,12 @@ on:
   push:
     branches:
       - main
+env:
+  DEPLOY_URL: ${{secrects.RENDER_DEPLOY_HOOK_URL}}
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-        DEPLOY_URL: ${{secrects.RENDER_DEPLOY_HOOK_URL}}
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
