@@ -209,8 +209,8 @@ def signin(user:login):
         "token":token
     }
 @app.delete("/delete/{short_code}")
-def  delete_url(short_code:str,authorization:str =Header(...)):
-    token=authorization.split()[1]
+def  delete_url(short_code:str,credentials=Depends(security)):
+    token = credentials.credentials
     payload=jwt.decode(
         token,
         SECRET_KEY,
@@ -239,8 +239,8 @@ def  delete_url(short_code:str,authorization:str =Header(...)):
 class updateurl(BaseModel):
     original_url:str
 @app.put("/update/{short_code}")
-def update_url(short_code:str,new_url:updateurl,authorization:str=Header(...)):
-    token=authorization.split()[1]
+def update_url(short_code:str,new_url:updateurl,credentials=Depends(security)):
+    token = credentials.credentials
     payload=jwt.decode(
         token,
         SECRET_KEY,
