@@ -28,7 +28,6 @@ jobs:
           portenv: ${{ secrets.portenv }}
           usernameenv: ${{ secrets.usernameenv }}
           passwordenv: ${{ secrets.passwordenv }}
-#          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
           python -m pytest
       - name: DEPLOY to Render
@@ -36,17 +35,5 @@ jobs:
         env:
           RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
-            echo "URL length: ${#RENDER_DEPLOY_HOOK_URL}"
-
-            if [[ "$RENDER_DEPLOY_HOOK_URL" == https://* ]]; then
-              echo "Starts with https:// ✅"
-            else
-                echo "Does NOT start with https:// ❌"
-                exit 1
-            fi
-
-             curl -v "$RENDER_DEPLOY_HOOK_URL"
-#      - name: DEPLOY to Render
-#        if: github.ref == 'refs/heads/main'
-#        run: |
-#          curl "$RENDER_DEPLOY_HOOK_URL"
+            curl  "$RENDER_DEPLOY_HOOK_URL"
+#  
