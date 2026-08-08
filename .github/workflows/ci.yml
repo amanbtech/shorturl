@@ -32,6 +32,6 @@ jobs:
       - name: DEPLOY to Render
         if: github.ref == 'refs/heads/main'
         env:
-          DEPLOY_URL: ${{secrects.RENDER_DEPLOY_HOOK_URL}}
+          DEPLOY_URL: ${{ secrects.RENDER_DEPLOY_HOOK_URL }}
         run: |
           curl "$DEPLOY_URL"
