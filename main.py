@@ -1,7 +1,6 @@
-
-from fastapi import FastAPI,HTTPException
+import psutil
+from fastapi import FastAPI,HTTPException,Request
 from pydantic import BaseModel, HttpUrl
-from fastapi import Header
 from fastapi.security import HTTPBearer
 from fastapi import Depends
 from fastapi.responses import RedirectResponse
@@ -15,11 +14,13 @@ import random
 import string
 import bcrypt
 import redis
+import time
 import  os
+import json
+import logging
+logger = logging.getLogger(__name__)
 from dotenv import load_dotenv
-
 load_dotenv()
-app=FastAPI()
 security = HTTPBearer()
 SECRET_KEY=os.getenv("SECRET_KEYenv")
 ALGORITHMS=os.getenv("ALGORITHMSenv")
@@ -33,6 +34,76 @@ pool = redis.ConnectionPool(
     max_connections=20
 )
 r=redis.Redis(connection_pool=pool)
+app=FastAPI()
+@app.middleware("http")
+async def request_logging(request:Request,call_next):
+    start_time = time.time()
+    try:
+      logger.info(f"Requested started | {request.method} {request.url.path}")
+      response=await call_next(request)
+      process_time=time.time()-start_time
+      log_data={
+          "event":"request complete",
+          "Method":request.method,
+          "Path":request.url.path,
+          "status":response.status_code,
+          "response_time":round(process_time,4)
+      }
+      logger.info(json.dumps(log_data))
+      if process_time > 1:
+          logger.warning(
+              f"slow performance |"
+              f"{request.method} {request.url.path} |"
+              f"time={process_time:.4f}s"
+          )
+      return response
+    except Exception:
+        logger.exception(
+            f"request filed |",
+            f"{request.method} {request.url.path}"
+        )
+        raise
+@app.get("/health")
+def health_check():
+    try:
+        intial_time=time.time()
+        cursor=conn.cursor()
+        cursor.execute("SELECT 1")
+        cursor.fetchone()
+        database_time=time.time()-intial_time
+        database_status="healthy"
+        logger.info(f"Database querry compelteed | time={database_time:.4f}s")
+    except Exception as e:
+        database_status="unhealthy"
+        logger.error(f"Database error | {e}")
+
+    try:
+        redis_intial=time.time()
+        r.ping()
+        redis_time=time.time()-redis_intial
+        redis_status="healthy"
+        logger.info(f"radis complete | time={redis_time:.4f}s")
+    except Exception as e:
+        redis_status="unhealthy"
+        logger.error(f"redis error | {e}")
+    if database_status == "healthy" and redis_status == "healthy":
+        overall_status = "healthy"
+    else:
+        overall_status = "degraded"
+    return {
+        "status": overall_status,
+        "database": database_status,
+        "redis": redis_status
+    }
+@app.get("/system_health")
+def system_health():
+    cpu= psutil.cpu_percent(interval=1)
+    memory=psutil.virtual_memory()
+    return {
+        "cpu_percent":cpu,
+        "memory_percent":memory.percent
+    }
+
 class Urls(BaseModel):
     original_url:HttpUrl
     custom_code:Optional[str]=None
