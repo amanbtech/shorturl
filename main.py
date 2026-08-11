@@ -373,7 +373,4 @@ def async_clicks_to_db():
             cursor = conn.cursor()
             cursor.execute("UPDATE url_shortener SET clicks=? WHERE short_code=?",(int(click_data),current_short_code))
             conn.commit()
-
-
-
 my_job()
