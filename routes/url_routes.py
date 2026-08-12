@@ -402,7 +402,6 @@ def cleanup():
             """,
             (datetime.now().isoformat(),)
         )
-
         conn.commit()
 
     except Exception:

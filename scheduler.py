@@ -7,72 +7,28 @@ from redis_client import r
 def update_top_urls():
 
     cursor = get_cursor()
-
-    cursor.execute("""
-        SELECT short_code
-        FROM url_shortener
-        ORDER BY clicks DESC
-        LIMIT 100
-    """)
-
-    top_urls = cursor.fetchall()
-
-    for url in top_urls:
-        short_code = url[0]
-
+    cursor.execute("SELECT short_code,original_url FROM url_shortener ORDER BY clicks DESC LIMIT 100")
+    DATA = cursor.fetchall()
+    for short_code, url in DATA:
         try:
-            r.zadd(
-                "top_urls",
-                {
-                    short_code: 1
-                }
-            )
+             r.set(short_code, url)
         except Exception:
             pass
-
-
 def sync_redis_clicks():
 
     cursor = get_cursor()
-
-    cursor.execute("""
-        SELECT short_code
-        FROM url_shortener
-    """)
-
-    urls = cursor.fetchall()
-
-    for url in urls:
-
-        short_code = url[0]
-
+    cursor.execute("SELECT short_code FROM url_shortener ")
+    syn_dta=cursor.fetchall()
+    for (short_code,) in syn_dta:
+        current_short_code=short_code
         try:
-            clicks = r.get(
-                f"clicks:{short_code}"
-            )
-
-            if clicks is not None:
-
-                cursor.execute(
-                    """
-                    UPDATE url_shortener
-                    SET clicks = clicks + ?
-                    WHERE short_code=?
-                    """,
-                    (
-                        int(clicks),
-                        short_code
-                    )
-                )
-
-                r.delete(
-                    f"clicks:{short_code}"
-                )
-
+            click_data=r.get(f"clicks:{current_short_code}")
         except Exception:
             pass
-
-    conn.commit()
+        if click_data :
+            cursor = conn.cursor()
+            cursor.execute("UPDATE url_shortener SET clicks=? WHERE short_code=?",(int(click_data),current_short_code))
+            conn.commit()
 
 
 scheduler = BackgroundScheduler()
