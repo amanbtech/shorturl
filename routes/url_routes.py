@@ -419,7 +419,7 @@ def forget(email:str):
     msg=EmailMessage()
     msg["subject"]="your Shorturl_code"
     msg["FROM"]="amanbtech2526@gmail.com"
-    msg["To"]="amanbtech2526@gmail.com"
+    msg["To"]=f"{email}"
     msg.set_content(f"your otp is{otp}")
     with smtplib.SMTP_SSL("smtp.gmail.com",465) as server:
         server.login("amanbtech2526@gmail.com","uchqraksazibsslk")
