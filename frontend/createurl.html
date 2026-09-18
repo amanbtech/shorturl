@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="create.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+<div class="dash-cont">
+    <div class="cont1">ShortUrl
+    </div>
+    <div class="cont2">
+        <div class="cont2a">
+
+            <div class="sidebar">
+                <a href="">Dashboard</a>
+                <a href="">Create short url</a>
+                <a href="">My URL</a>
+                <a href="">Analytic</a>
+                <a href="">Profile</a>
+                <a href="">Setting</a>
+                <a href="">Logout</a>
+            </div>
+            <div class="upgrade">
+                <h3>Upgrade to Pro</h3>
+                <p>Unlock powerful feature custom domains and detailed analytics</p>
+                <button class="up">Upgrade Now</button>
+            </div>
+        </div>
+        <div class="cont2b">
+            <div class="cont2aA">
+                <div class="cont2aAa">
+                    <p>WELCOME back ,Aman</p>
+                </div>
+                <div class="cont2aAb">
+                    <button class="cont2aAba">＋Create Short Url</button>
+                </div>
+            </div>
+            <div class="main">
+                <h3>Create short URL</h3>
+                <div class="main0">
+                    <div class ="main01">
+                        <p class> 1. Enter your URL</p>
+                        <input class="text" type="text" placeholder="Enter your Long URL here" required>
+                    </div>
+                    <div class ="main02">
+                        <p> 1.Customize(optional)</p>
+                        <div class="main02a">
+                            <select class="text">
+                                <option>youtube.com</option>
+                                <option>tweter.com</option>
+                                <option>email.dom</option>
+                                <option>linkdin.com</option>
+                            </select>
+                            <input  class="text" type="text" placeholder="Customize url">
+                        </div>
+                    </div>
+                </div>
+                <div class="main1">
+                    <div class ="main11">
+                        <p> 3. Expiry</p>
+                        <input class="text" type="number" >
+                    </div>
+                    <button class="text-btn"> Shorten URL</button>
+                </div>
+                <div class="main2">
+                    <div class="main21">
+                        <p>your short URL is ready</p>
+                    </div>
+                    <div class="main22">
+                        <div id="qrcode"></div>
+                        <button class="text-btn-alan">View analytics</button>
+                </div>
+            </div>
+            </div>
+            <div class="recent-links">
+                <div class="recent-header">
+                    <h3>Recent Links</h3>
+                    <button class="text-btn-alan">View All</button>
+                </div>
+                <div class="table-header">
+                    <span>Original URL</span>
+                    <span>Short URL</span>
+                    <span>Clicks</span>
+                    <span>Created At</span>
+                    <span>Actions</span>
+                </div>
+                <div class="link-row">
+                    <div class="original-url">
+                        <span class="globe">⊕</span>
+                        <span>https://example.com/very-long-url...</span>
+                    </div>
+                    <div class="short-url">
+                        <span class="ur">shorturl.com/abc123</span>
+                        <button class="copy-btn">▢</button>
+                    </div>
+                    <div class="clicks">
+                        <strong>1,234</strong>
+                        <span class="mini-chart">⌁⌁</span>
+                    </div>
+                    <div class="created">May 18, 2025 10:30 AM</div>
+                    <div class="actions">
+                        <button>♧</button>
+                        <button>▢</button>
+                        <button>⋮</button>
+                    </div>
+                </div>
+                <div class="link-row">
+                    <div class="original-url">
+                        <span class="globe">⊕</span>
+                        <span>https://github.com/amanbtech/project</span>
+                    </div>
+                    <div class="short-url">
+                        <span class="ur">shorturl.com/def456</span>
+                        <button class="copy-btn">▢</button>
+                    </div>
+                    <div class="clicks">
+                        <strong>856</strong>
+                        <span class="mini-chart">⌁⌁</span>
+                    </div>
+                    <div class="created">May 17, 2025 09:15 PM</div>
+                    <div class="actions">
+                        <button>♧</button>
+                        <button>▢</button>
+                        <button>⋮</button>
+                    </div>
+                </div>
+                <div class="link-row">
+                    <div class="original-url">
+                        <span class="globe">⊕</span>
+                        <span>https://youtube.com/watch?v=xyz123</span>
+                    </div>
+                    <div class="short-url">
+                        <span class="ur">shorturl.com/ghi789</span>
+                        <button class="copy-btn">▢</button>
+                    </div>
+                    <div class="clicks">
+                        <strong>2,345</strong>
+                        <span class="mini-chart">⌁⌁</span>
+                    </div>
+                    <div class="created">May 17, 2025 04:45 PM</div>
+                    <div class="actions">
+                        <button>♧</button>
+                        <button>▢</button>
+                        <button>⋮</button>
+                    </div>
+                </div>
+                <div class="link-row">
+                    <div class="original-url">
+                        <span class="globe">⊕</span>
+                        <span>https://myportfolio/prfile.com</span>
+                    </div>
+                    <div class="short-url">
+                        <span class="ur">shorturl.com/jkl012</span>
+                        <button class="copy-btn">▢</button>
+                    </div>
+                  <div class="clicks">
+                      <strong>642</strong>
+                      <span class="mini-chart">⌁⌁</span>
+                  </div>
+                  <div class="created">May 16, 2025 11:20 AM</div>
+                  <div class="actions">
+                      <button>♧</button>
+                      <button>▢</button>
+                      <button>⋮</button>
+                  </div>
+                </div>
+                <div class="link-row">
+                    <div class="original-url">
+                        <span class="globe">⊕</span>
+                        <span>https://twitter.com/amanbtech</span>
+                    </div>
+                    <div class="short-url">
+                        <span class="ur">shorturl.com/mno345</span>
+                        <button class="copy-btn">▢</button>
+                    </div>
+                    <div class="clicks">
+                        <strong>355</strong>
+                        <span class="mini-chart">⌁⌁</span>
+                    </div>
+                    <div class="created">May 15, 2025 08:50 PM</div>
+                    <div class="actions">
+                        <button>♧</button>
+                        <button>▢</button>
+                        <button>⋮</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="craete.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</html>

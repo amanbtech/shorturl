@@ -1,0 +1,134 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    width:98vw;
+    height:98vh;
+    margin:0;
+    padding: 0;
+    background: #080b3d;
+    font-family: Arial, serif;
+    border-radius: 10px;
+}
+.left-section {
+    width:30%;
+    background: #080b3d;
+    color: white;
+    padding: 50px;
+}
+.right-sec{
+    width:60%;
+
+     background: #080b3d;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+.options {
+    display: flex;
+    gap:10px;
+    width:30vw;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.options span {
+    color: #5d4df5;
+    cursor: pointer;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #7265f5;
+}
+.welcome {
+    margin-top: 90px;
+}
+
+.welcome h1 {
+    margin: 0;
+    font-size: 46px;
+}
+
+.welcome h1:nth-child(2) {
+    color: #7568ff;
+}
+
+.welcome p {
+    font-size: 20px;
+    line-height: 1.7;
+    max-width: 400px;
+}
+
+
+.content-box{
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    justify-content: center;
+    gap:4vh;
+    border:2px solid black;;
+    width: 60%;
+
+    height:70vh;
+    border-radius: 10px;
+
+}
+header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    justify-content: center;
+    width:100%;
+    font-weight: bold;
+    font-size:18px;
+
+}
+.email{
+    height: 4vh;
+    width:30vw;
+    border:1px solid #4a494e;
+    border-radius: 3px;
+
+
+}
+
+main{
+      display: flex;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+    gap:1vh;
+
+}
+footer{
+      display: flex;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+
+}
+.sign{
+    background-color: whitesmoke;
+    border:1px solid whitesmoke;
+    font-weight: bold;
+    color: #7265f5;
+    font-size: 17px;
+}
+.pass{
+    width:30vw;
+    background-color: #7265f5;
+    height: 4vh;
+    border:1px solid #7265f5;
+    border-radius: 3px;
+    color: whitesmoke;
+    font-weight: bold;
+}

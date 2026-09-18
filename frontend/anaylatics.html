@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics - ShortURL</title>
+    <link rel="stylesheet" href="anayltics.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🔗 <span>Short<span>URL</span></span>
+        </div>
+
+        <nav>
+            <a href="#">⌂ <span>Dashboard</span></a>
+            <a href="#">＋ <span>Create Short URL</span></a>
+            <a href="#">🔗 <span>My URLs</span></a>
+            <a href="#" class="active">▥ <span>Analytics</span></a>
+            <a href="#">♙ <span>Profile</span></a>
+            <a href="#">⚙ <span>Settings</span></a>
+            <a href="#">⇥ <span>Logout</span></a>
+        </nav>
+
+        <div class="upgrade">
+            <div class="crown">♛</div>
+            <h3>Upgrade to Pro</h3>
+            <p>
+                Unlock powerful features,
+                custom domains and
+                detailed analytics.
+            </p>
+            <button>Upgrade Now</button>
+        </div>
+
+    </aside>
+
+
+    <!-- Main -->
+    <main class="main">
+
+        <header class="topbar">
+            <div></div>
+
+            <div class="profile">
+                🔔
+                <img src="profile.jpg" alt="profile">
+                <span>Aman⌄</span>
+            </div>
+        </header>
+
+
+        <!-- Heading -->
+        <section class="heading">
+
+            <div>
+                <h1>Analytics</h1>
+                <p>Track the performance of your shortened URLs.</p>
+            </div>
+
+            <div class="heading-actions">
+                <select>
+                    <option>Last 7 Days</option>
+                    <option>Last 30 Days</option>
+                    <option>Last 3 Months</option>
+                    <option>Last Year</option>
+                </select>
+
+                <button>⬇ Export</button>
+            </div>
+
+        </section>
+
+
+        <!-- Stats -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="icon blue">🔗</div>
+                <div>
+                    <p>Total Clicks</p>
+                    <h2>5,432</h2>
+                    <span>+18.5% this month</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="icon green">↗</div>
+                <div>
+                    <p>Unique Visitors</p>
+                    <h2>2,103</h2>
+                    <span>+11.3% this month</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="icon orange">🔗</div>
+                <div>
+                    <p>Total Links</p>
+                    <h2>128</h2>
+                    <span>+12 this month</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="icon purple">⌁</div>
+                <div>
+                    <p>Avg. Clicks / Link</p>
+                    <h2>42.4</h2>
+                    <span>+9.5% this month</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Chart -->
+        <section class="analytics-grid">
+
+            <div class="chart-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Click Analytics</h3>
+                        <p>Clicks over the selected period</p>
+                    </div>
+
+                    <select>
+                        <option>Last 7 Days</option>
+                        <option>Last 30 Days</option>
+                    </select>
+                </div>
+
+                <div class="chart">
+                    <div class="y-axis">
+                        <span>1K</span>
+                        <span>800</span>
+                        <span>600</span>
+                        <span>400</span>
+                        <span>200</span>
+                        <span>0</span>
+                    </div>
+
+                    <div class="graph">
+
+                        <div class="line">
+                            <div class="point p1"></div>
+                            <div class="point p2"></div>
+                            <div class="point p3"></div>
+                            <div class="point p4"></div>
+                            <div class="point p5"></div>
+                            <div class="point p6"></div>
+                            <div class="point p7"></div>
+                        </div>
+
+                        <div class="x-axis">
+                            <span>May 12</span>
+                            <span>May 13</span>
+                            <span>May 14</span>
+                            <span>May 15</span>
+                            <span>May 16</span>
+                            <span>May 17</span>
+                            <span>May 18</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Device -->
+            <div class="device-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Devices</h3>
+                        <p>Visitors by device</p>
+                    </div>
+                </div>
+
+                <div class="device">
+
+                    <div class="device-icon">💻</div>
+
+                    <div class="device-info">
+                        <div>
+                            <span>Desktop</span>
+                            <strong>58%</strong>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-fill desktop"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="device">
+
+                    <div class="device-icon">📱</div>
+
+                    <div class="device-info">
+                        <div>
+                            <span>Mobile</span>
+                            <strong>34%</strong>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-fill mobile"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="device">
+
+                    <div class="device-icon">📟</div>
+
+                    <div class="device-info">
+                        <div>
+                            <span>Tablet</span>
+                            <strong>8%</strong>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-fill tablet"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Bottom -->
+        <section class="bottom-grid">
+
+            <!-- Top URLs -->
+            <div class="card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Top Performing URLs</h3>
+                        <p>Your most clicked links</p>
+                    </div>
+
+                    <button class="view">View All</button>
+                </div>
+
+
+                <div class="url-item">
+
+                    <div class="url-icon">🔗</div>
+
+                    <div class="url-info">
+                        <strong>shorturl.com/abc123</strong>
+                        <span>youtube.com/watch...</span>
+                    </div>
+
+                    <div class="url-clicks">
+                        <strong>2,345</strong>
+                        <span>clicks</span>
+                    </div>
+
+                </div>
+
+
+                <div class="url-item">
+
+                    <div class="url-icon">🔗</div>
+
+                    <div class="url-info">
+                        <strong>shorturl.com/def456</strong>
+                        <span>github.com/amanbtech...</span>
+                    </div>
+
+                    <div class="url-clicks">
+                        <strong>1,234</strong>
+                        <span>clicks</span>
+                    </div>
+
+                </div>
+
+
+                <div class="url-item">
+
+                    <div class="url-icon">🔗</div>
+
+                    <div class="url-info">
+                        <strong>shorturl.com/ghi789</strong>
+                        <span>myportfolio.com</span>
+                    </div>
+
+                    <div class="url-clicks">
+                        <strong>856</strong>
+                        <span>clicks</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Countries -->
+            <div class="card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Top Countries</h3>
+                        <p>Visitors by location</p>
+                    </div>
+                </div>
+
+                <div class="country">
+                    <span>🇮🇳 India</span>
+                    <strong>62%</strong>
+                </div>
+
+                <div class="country">
+                    <span>🇺🇸 United States</span>
+                    <strong>18%</strong>
+                </div>
+
+                <div class="country">
+                    <span>🇬🇧 United Kingdom</span>
+                    <strong>9%</strong>
+                </div>
+
+                <div class="country">
+                    <span>🇨🇦 Canada</span>
+                    <strong>6%</strong>
+                </div>
+
+                <div class="country">
+                    <span>🌍 Others</span>
+                    <strong>5%</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

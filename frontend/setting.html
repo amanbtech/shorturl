@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings - ShortURL</title>
+    <link rel="stylesheet" href="setting.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">🔗 Short<span>URL</span></div>
+
+        <nav>
+            <a href="#">⌂ <span>Dashboard</span></a>
+            <a href="#">＋ <span>Create Short URL</span></a>
+            <a href="#">🔗 <span>My URLs</span></a>
+            <a href="#">▥ <span>Analytics</span></a>
+            <a href="#">♙ <span>Profile</span></a>
+            <a href="#" class="active">⚙ <span>Settings</span></a>
+            <a href="#">⇥ <span>Logout</span></a>
+        </nav>
+
+        <div class="upgrade">
+            <h3>♛ Upgrade to Pro</h3>
+            <p>Unlock powerful features, custom domains and detailed analytics.</p>
+            <button>Upgrade Now</button>
+        </div>
+
+    </aside>
+
+
+    <!-- Main -->
+    <main class="main">
+
+        <header class="topbar">
+            <h3>Settings</h3>
+
+            <div class="user">
+                🔔
+                <img src="profile.jpg" alt="Profile">
+                <span>Aman⌄</span>
+            </div>
+        </header>
+
+
+        <section class="settings-page">
+
+            <div class="page-title">
+                <h1>Settings</h1>
+                <p>Manage your account preferences and security.</p>
+            </div>
+
+
+            <div class="settings-layout">
+
+                <!-- Settings Menu -->
+                <div class="settings-menu">
+
+                    <button class="menu-active">
+                        👤 Account
+                    </button>
+
+                    <button>
+                        🔒 Security
+                    </button>
+
+                    <button>
+                        🔔 Notifications
+                    </button>
+
+                    <button>
+                        🔗 URL Settings
+                    </button>
+
+                    <button>
+                        💳 Billing
+                    </button>
+
+                </div>
+
+
+                <!-- Settings Content -->
+                <div class="settings-content">
+
+                    <!-- Account -->
+                    <div class="settings-section">
+
+                        <h2>Account Settings</h2>
+                        <p>Update your account information.</p>
+
+                        <div class="form-row">
+
+                            <div>
+                                <label>Username</label>
+                                <input type="text" value="amanbtech">
+                            </div>
+
+                            <div>
+                                <label>Email</label>
+                                <input
+                                    type="email"
+                                    value="amanbtech@gmail.com"
+                                >
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Security -->
+                    <div class="settings-section">
+
+                        <h2>Password & Security</h2>
+                        <p>Keep your account secure.</p>
+
+                        <button class="security-btn">
+                            Change Password
+                        </button>
+
+                    </div>
+
+
+                    <!-- Notifications -->
+                    <div class="settings-section">
+
+                        <h2>Notifications</h2>
+                        <p>Choose what notifications you receive.</p>
+
+                        <div class="setting-item">
+
+                            <div>
+                                <strong>Email Notifications</strong>
+                                <p>Receive important updates by email.</p>
+                            </div>
+
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span></span>
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-item">
+
+                            <div>
+                                <strong>URL Click Notifications</strong>
+                                <p>Get notified when your URL receives clicks.</p>
+                            </div>
+
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span></span>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- URL Settings -->
+                    <div class="settings-section">
+
+                        <h2>URL Settings</h2>
+                        <p>Configure default URL behaviour.</p>
+
+                        <div class="form-row">
+
+                            <div>
+                                <label>Default Expiry</label>
+
+                                <select>
+                                    <option>7 Days</option>
+                                    <option>30 Days</option>
+                                    <option>90 Days</option>
+                                    <option>Never</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label>Default Domain</label>
+
+                                <select>
+                                    <option>shorturl.com</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Save -->
+                    <div class="save-area">
+                        <button class="cancel">Cancel</button>
+                        <button class="save">Save Changes</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

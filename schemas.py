@@ -15,9 +15,15 @@ class Signup(BaseModel):
 
 
 class Login(BaseModel):
-    username: str
+    email: str
     password_hash: str
 
 
 class UpdateUrl(BaseModel):
     original_url: str
+class forget(BaseModel):
+    email:str
+class verify_otp(BaseModel):
+    user_otp:int
+    password_hash:str
+    email:str

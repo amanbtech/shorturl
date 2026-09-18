@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="dashbord.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="dash-cont">
+    <div class="cont1">ShortUrl
+    </div>
+    <div class="cont2">
+        <div class="cont2a">
+
+            <div class="sidebar">
+                <a href="">Dashboard</a>
+                <a href="">Create short url</a>
+                <a href="">My URL</a>
+                <a href="">Analytic</a>
+                <a href="">Profile</a>
+                <a href="">Setting</a>
+                <a href="">Logout</a>
+            </div>
+            <div class="upgrade">
+                <h3>Upgrade to Pro</h3>
+                <p>Unlock powerful feature custom domains and detailed analytics</p>
+                <button class="up">Upgrade Now</button>
+            </div>
+        </div>
+        <div class="cont2b">
+            <div class="cont2aA">
+                <div class="cont2aAa">
+                    <p id="introname">welcome back,aman</p><p>here is what is happening  with your links today</p>
+                </div>
+                <div class="cont2aAb">
+                    <button class="cont2aAba">＋Create Short Url</button>
+                </div>
+            </div>
+            <div class="cont2aB">
+                <div class="cont2aBa">
+                    <p>Total Links</p>
+                    <p class="si" id="totalUrlS" >128</p>
+                </div>
+                <div class="cont2aBb">
+                    <p>Total Clicks</p>
+                    <p class="si" id="totaClicks" >5432</p>
+                </div>
+                <div class="cont2aBc">
+                    <p>UNIQUE Clicks</p>
+                    <p class="si" >2101</p>
+                </div>
+                <div class="cont2aBd">
+                    <p>Avg Clicks/link</p>
+                    <p class="si" >54.3</p>
+                </div>
+            </div>
+            <div class="cont2aC">
+                <div class="cont2aCa">
+                    <h3 >Create Short Url</h3>
+                    <input class="email" type="text" placeholder="Enter your long url here">
+                    <input class="email" type="text"  placeholder="custom url">
+                    <button class="bu">ShortUrl</button>
+                </div>
+                <div class="analytics-card">
+                    <div class="analytics-header">
+                        <div>
+                           <h3>Click Analytics</h3>
+                           <p>Track your link performance</p>
+                        </div>
+                        <select>
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                        </select>
+                    </div>
+                    <div class="graph">
+                        <canvas id="clickChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="recent-links">
+                <div class="recent-header">
+                    <h3>Recent Links</h3>
+                    <button>View All</button>
+                </div>
+                <div class="table-header">
+                    <span>Original URL</span>
+                    <span>Short URL</span>
+                    <span>Clicks</span>
+                    <span>Created At</span>
+                    <span>Actions</span>
+                </div>
+                <div class="link-row">
+                    <div class="original-url">
+                        <span class="globe">⊕</span>
+                        <span>https://example.com/very-long-url...</span>
+                    </div>
+                    <div class="short-url">
+                        <span class="ur">shorturl.com/abc123</span>
+                        <button class="copy-btn">▢</button>
+                    </div>
+                    <div class="clicks">
+                        <strong>1,234</strong>
+                        <span class="mini-chart">⌁⌁</span>
+                    </div>
+                    <div class="created">May 18, 2025 10:30 AM</div>
+                    <div class="actions">
+                        <button>♧</button>
+                        <button>▢</button>
+                        <button>⋮</button>
+                    </div>
+                </div>
+                <div class="link-row">
+                    <div class="original-url">
+                        <span class="globe">⊕</span>
+                        <span>https://github.com/amanbtech/project</span>
+                    </div>
+                    <div class="short-url">
+                        <span class="ur">shorturl.com/def456</span>
+                        <button class="copy-btn">▢</button>
+                    </div>
+                    <div class="clicks">
+                        <strong>856</strong>
+                        <span class="mini-chart">⌁⌁</span>
+                    </div>
+                    <div class="created">May 17, 2025 09:15 PM</div>
+                    <div class="actions">
+                        <button>♧</button>
+                        <button>▢</button>
+                        <button>⋮</button>
+                    </div>
+                </div>
+                <div class="link-row">
+                    <div class="original-url">
+                        <span class="globe">⊕</span>
+                        <span>https://youtube.com/watch?v=xyz123</span>
+                    </div>
+                    <div class="short-url">
+                        <span class="ur">shorturl.com/ghi789</span>
+                        <button class="copy-btn">▢</button>
+                    </div>
+                    <div class="clicks">
+                        <strong>2,345</strong>
+                        <span class="mini-chart">⌁⌁</span>
+                    </div>
+                    <div class="created">May 17, 2025 04:45 PM</div>
+                    <div class="actions">
+                        <button>♧</button>
+                        <button>▢</button>
+                        <button>⋮</button>
+                    </div>
+                </div>
+                <div class="link-row">
+                    <div class="original-url">
+                        <span class="globe">⊕</span>
+                        <span>https://myportfolio/prfile.com</span>
+                    </div>
+                    <div class="short-url">
+                        <span class="ur">shorturl.com/jkl012</span>
+                        <button class="copy-btn">▢</button>
+                    </div>
+                  <div class="clicks">
+                      <strong>642</strong>
+                      <span class="mini-chart">⌁⌁</span>
+                  </div>
+                  <div class="created">May 16, 2025 11:20 AM</div>
+                  <div class="actions">
+                      <button>♧</button>
+                      <button>▢</button>
+                      <button>⋮</button>
+                  </div>
+                </div>
+                <div class="link-row">
+                    <div class="original-url">
+                        <span class="globe">⊕</span>
+                        <span>https://twitter.com/amanbtech</span>
+                    </div>
+                    <div class="short-url">
+                        <span class="ur">shorturl.com/mno345</span>
+                        <button class="copy-btn">▢</button>
+                    </div>
+                    <div class="clicks">
+                        <strong>355</strong>
+                        <span class="mini-chart">⌁⌁</span>
+                    </div>
+                    <div class="created">May 15, 2025 08:50 PM</div>
+                    <div class="actions">
+                        <button>♧</button>
+                        <button>▢</button>
+                        <button>⋮</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="chart.js"></script>
+</html>

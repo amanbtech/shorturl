@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My URLs - ShortURL</title>
+    <link rel="stylesheet" href="myurl.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🔗 <span>Short<span>URL</span></span>
+        </div>
+
+        <nav>
+            <a href="#">⌂ <span>Dashboard</span></a>
+            <a href="#">＋ <span>Create Short URL</span></a>
+            <a href="#" class="active">🔗 <span>My URLs</span></a>
+            <a href="#">▥ <span>Analytics</span></a>
+            <a href="#">♙ <span>Profile</span></a>
+            <a href="#">⚙ <span>Settings</span></a>
+            <a href="#">⇥ <span>Logout</span></a>
+        </nav>
+
+        <div class="upgrade">
+            <div class="crown">♛</div>
+            <h3>Upgrade to Pro</h3>
+            <p>
+                Unlock powerful features,
+                custom domains and
+                detailed analytics.
+            </p>
+            <button>Upgrade Now</button>
+        </div>
+
+    </aside>
+
+
+    <!-- Main -->
+    <main class="main"><!-- Page heading -->
+        <section class="heading">
+
+            <div>
+                <h1>My URLs</h1>
+                <p>
+                    Manage and track all your shortened URLs in one place.
+                </p>
+            </div>
+
+            <button class="create-btn">
+                ＋ Create Short URL
+            </button>
+
+        </section>
+
+        <section class="filters">
+
+            <div class="search">
+                🔍
+                <input
+                    type="text"
+                    placeholder="Search by original URL or alias..."
+                >
+            </div>
+            <select>
+                <option>All Links</option>
+                <option>Active</option>
+                <option>Expired</option>
+            </select>
+
+            <select>
+                <option>Sort by: Newest</option>
+                <option>Sort by: Oldest</option>
+                <option>Sort by: Most Clicks</option>
+            </select>
+
+            <button class="filter-btn">⚱</button>
+
+        </section>
+
+
+        <!-- Table -->
+        <section class="url-table">
+
+            <div class="table-head">
+                <span>ORIGINAL URL</span>
+                <span>SHORT URL</span>
+                <span>CLICKS</span>
+                <span>CREATED AT</span>
+                <span>ACTIONS</span>
+            </div>
+
+
+            <!-- Row 1 -->
+            <div class="url-row">
+
+                <div class="original">
+                    🌐
+                    <span>
+                        https://www.youtube.com/<br>
+                        watch?v=xyz123
+                    </span>
+                </div>
+
+                <div class="short">
+                    <span>shorturl.com/abc123</span>
+                    <button>▢</button>
+                </div>
+
+                <div class="clicks">
+                    <strong>1,245</strong>
+                    <span class="chart">⌁⌁</span>
+                </div>
+
+                <div class="date">
+                    May 18, 2025<br>
+                    10:30 AM
+                </div>
+
+                <div class="actions">
+                    <button>▥</button>
+                    <button>✎</button>
+                    <button class="delete">♧</button>
+                </div>
+
+            </div>
+
+
+            <!-- Row 2 -->
+            <div class="url-row">
+
+                <div class="original">
+                    🌐
+                    <span>
+                        https://github.com/amanbtech/<br>
+                        project
+                    </span>
+                </div>
+
+                <div class="short">
+                    <span>shorturl.com/def456</span>
+                    <button>▢</button>
+                </div>
+
+                <div class="clicks">
+                    <strong>856</strong>
+                    <span class="chart">⌁⌁</span>
+                </div>
+
+                <div class="date">
+                    May 17, 2025<br>
+                    09:15 PM
+                </div>
+
+                <div class="actions">
+                    <button>▥</button>
+                    <button>✎</button>
+                    <button class="delete">♧</button>
+                </div>
+
+            </div>
+
+
+            <!-- Row 3 -->
+            <div class="url-row">
+
+                <div class="original">
+                    🌐
+                    <span>https://myportfolio.com</span>
+                </div>
+
+                <div class="short">
+                    <span>shorturl.com/ghi789</span>
+                    <button>▢</button>
+                </div>
+
+                <div class="clicks">
+                    <strong>2,345</strong>
+                    <span class="chart">⌁⌁</span>
+                </div>
+
+                <div class="date">
+                    May 17, 2025<br>
+                    04:45 PM
+                </div>
+
+                <div class="actions">
+                    <button>▥</button>
+                    <button>✎</button>
+                    <button class="delete">♧</button>
+                </div>
+
+            </div>
+
+
+            <!-- Row 4 -->
+            <div class="url-row">
+
+                <div class="original">
+                    🌐
+                    <span>https://twitter.com/amanbtech</span>
+                </div>
+
+                <div class="short">
+                    <span>shorturl.com/jkl012</span>
+                    <button>▢</button>
+                </div>
+
+                <div class="clicks">
+                    <strong>642</strong>
+                    <span class="chart">⌁⌁</span>
+                </div>
+
+                <div class="date">
+                    May 16, 2025<br>
+                    11:20 AM
+                </div>
+
+                <div class="actions">
+                    <button>▥</button>
+                    <button>✎</button>
+                    <button class="delete">♧</button>
+                </div>
+
+            </div>
+            <div class="url-row">
+
+                <div class="original">
+                    🌐
+                    <span>
+                        https://blog.dev.to/<br>
+                        fastapi-tutorial
+                    </span>
+                </div>
+
+                <div class="short">
+                    <span>shorturl.com/mno345</span>
+                    <button>▢</button>
+                </div>
+
+                <div class="clicks">
+                    <strong>355</strong>
+                    <span class="chart">⌁⌁</span>
+                </div>
+
+                <div class="date">
+                    May 15, 2025<br>
+                    08:50 PM
+                </div>
+
+                <div class="actions">
+                    <button>▥</button>
+                    <button>✎</button>
+                    <button class="delete">♧</button>
+                </div>
+
+            </div>
+
+
+            <!-- Row 6 -->
+            <div class="url-row">
+
+                <div class="original">
+                    🌐
+                    <span>
+                        https://leetcode.com/<br>
+                        problemset/all
+                    </span>
+                </div>
+
+                <div class="short">
+                    <span>shorturl.com/pqr678</span>
+                    <button>▢</button>
+                </div>
+
+                <div class="clicks">
+                    <strong>1,102</strong>
+                    <span class="chart">⌁⌁</span>
+                </div>
+
+                <div class="date">
+                    May 15, 2025<br>
+                    02:30 PM
+                </div>
+
+                <div class="actions">
+                    <button>▥</button>
+                    <button>✎</button>
+                    <button class="delete">♧</button>
+                </div>
+
+            </div>
+
+
+            <!-- Pagination -->
+            <div class="pagination">
+
+                <span>Showing 1 to 6 of 24 results</span>
+
+                <div>
+                    <button>‹</button>
+                    <button class="page-active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>...</button>
+                    <button>5</button>
+                    <button>›</button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

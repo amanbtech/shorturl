@@ -17,15 +17,11 @@ def hash_password(password: str) -> str:
         bcrypt.gensalt()
     )
     return hashed_password.decode()
-
-
 def verify_password(password: str, hashed_password: str) -> bool:
     return bcrypt.checkpw(
         password.encode(),
         hashed_password.encode()
     )
-
-
 def create_access_token(username: str, role: str) -> str:
     expire = datetime.now(UTC) + timedelta(hours=1)
 

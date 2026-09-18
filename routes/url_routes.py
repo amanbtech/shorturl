@@ -1,14 +1,17 @@
-
+import email
 from datetime import datetime, timedelta
+
+import bcrypt
 import redis
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import RedirectResponse
-
-from schemas import Urls, UpdateUrl
+import smtplib
+from email.message import EmailMessage
+from schemas import Urls, UpdateUrl, verify_otp
 from database import get_cursor, conn
 from auth import get_current_user
 from redis_client import r
-from utils import short_coder, validate_custom_code
+from utils import short_coder, validate_custom_code,otp_Genrate
 router = APIRouter()
 @router.post("/data_save")
 def create_short_url(
@@ -131,9 +134,6 @@ def redirect_url(short_code: str):
             url=str(redis_result)
         )
 
-    # -----------------------------------------------------
-    # Redis miss → check database
-    # -----------------------------------------------------
 
     cursor = get_cursor()
 
@@ -281,10 +281,6 @@ def delete_url(
 
     owner = data[0]
 
-    # -----------------------------------------------------
-    # Check ownership
-    # -----------------------------------------------------
-
     if owner != username:
 
         raise HTTPException(
@@ -415,3 +411,76 @@ def cleanup():
         "status": "success",
         "message": "Expired URL deleted"
     }
+
+@router.post("/forget/{email}")
+def forget(email:str):
+    otp=otp_Genrate()
+    r.set(email,otp,ex=300)
+    msg=EmailMessage()
+    msg["subject"]="your Shorturl_code"
+    msg["FROM"]="amanbtech2526@gmail.com"
+    msg["To"]="amanbtech2526@gmail.com"
+    msg.set_content(f"your otp is{otp}")
+    with smtplib.SMTP_SSL("smtp.gmail.com",465) as server:
+        server.login("amanbtech2526@gmail.com","uchqraksazibsslk")
+        server.send_message(msg)
+    return {"message":"otp sent","otp":otp}
+@router.post("/verify_otp")
+def verify_otp(otp_data:verify_otp):
+    gen_otp=(r.get(otp_data.email))
+    if gen_otp is None:
+        return {"msg":"otp expired"}
+    genr_otp=int(gen_otp)
+    if otp_data.user_otp!=genr_otp:
+        return "otp is not right"
+    cursor = get_cursor()
+    hashed_password= bcrypt.hashpw(
+        otp_data.password_hash.encode(),
+        bcrypt.gensalt()
+    )
+    cursor.execute("UPDATE url_shortener SET password_hash=? WHERE email=?,(hashed_password.decode(),otp_data.email)")
+    return{
+        "msg":"password chnaged"
+    }
+
+@router.get("/dashboard")
+def dashboard(user=Depends(get_current_user)):
+    cursor=get_cursor()
+    cursor.execute(
+        "SELECT COUNT(*) FROM url_shortener WHERE username=?",(user["username"],))
+    total_url=cursor.fetchone()[0]
+    cursor.execute("SELECT COALESCE(SUM(clicks),0) FROM url_shortener WHERE username=?",(user["username"],))
+    total_clicks=cursor.fetchone()[0]
+    cursor.execute("SELECT COUNT(*) FROM url_shortener WHERE username=? AND (expires_at IS NULL OR expires_at>?)",(user["username"],datetime.now.isoformat()))
+    active_url=cursor.fetchone()[0]
+    cursor.execute("SELECT COUNT(*) FROM url_shortener WHERE  username=? AND (expires_at<?)",(user["username"],datetime.now().isoformat()))
+    expired_url=cursor.fetchone()[0]
+    cursor.execute("SELECT ")
+    cursor.execute("SELECT original_url,short_code,clicks,creating_time,expires_at FROM url_shortener WHERE username=? ORDER BY creating_time DESC LIMIT 5",(user["username"],))
+    rows=cursor.fetchall()
+    recent_links=[
+        {
+            "original_url":row[0],
+            "short_code":row[1],
+            "clicks":row[2],
+            "creating_time":row[3],
+            "expires_at":row[4]
+        }
+        for row in rows
+    ]
+    return {
+        "user": {
+            "username": user["username"],
+            "email": user["email"]
+        },
+
+        "stats": {
+            "total_urls": total_url,
+            "total_clicks": total_clicks,
+            "active_urls": active_url,
+            "expired_urls": expired_url
+        },
+
+        "recent_links": recent_links
+    }
+

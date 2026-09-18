@@ -1,0 +1,350 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8faff;
+    color: #172033;
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 290px;
+    background: white;
+    border-right: 1px solid #e8ebf2;
+    padding: 25px 16px;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    color: #2463eb;
+    padding: 10px 15px 45px;
+}
+
+.logo span {
+    color: #6346e5;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #596579;
+    padding: 16px 18px;
+    border-radius: 10px;
+}
+
+.sidebar nav a span {
+    margin-left: 12px;
+}
+
+.sidebar nav a:hover,
+.sidebar nav .active {
+    background: #eef4ff;
+    color: #2463eb;
+}
+
+
+/* UPGRADE */
+
+.upgrade {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 25px;
+
+    padding: 22px 18px;
+
+    text-align: center;
+
+    border: 1px solid #a9c7ff;
+    border-radius: 15px;
+
+    background: linear-gradient(135deg, #fff, #edf5ff);
+}
+
+.upgrade h3 {
+    margin-bottom: 12px;
+}
+
+.upgrade p {
+    color: #697386;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.upgrade button {
+    width: 100%;
+    margin-top: 16px;
+    padding: 11px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #2463eb;
+    color: white;
+}
+
+
+/* MAIN */
+
+.main {
+    margin-left: 290px;
+    width: calc(100% - 290px);
+}
+
+
+/* TOPBAR */
+
+.topbar {
+    height: 75px;
+
+    background: white;
+    border-bottom: 1px solid #e8ebf2;
+
+    padding: 0 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+
+/* PROFILE PAGE */
+
+.profile-page {
+    padding: 40px;
+}
+
+.page-title h1 {
+    font-size: 32px;
+}
+
+.page-title p {
+    color: #687389;
+    margin-top: 8px;
+}
+
+
+/* PROFILE CARD */
+
+.profile-card {
+    margin-top: 30px;
+
+    background: white;
+    border: 1px solid #e7ebf2;
+    border-radius: 14px;
+
+    padding: 30px;
+}
+
+
+/* PROFILE TOP */
+
+.profile-top {
+    display: flex;
+    align-items: center;
+
+    padding-bottom: 30px;
+
+    border-bottom: 1px solid #edf0f5;
+}
+
+.avatar {
+    width: 85px;
+    height: 85px;
+
+    border-radius: 50%;
+
+    background: #6346e5;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.profile-name {
+    margin-left: 20px;
+}
+
+.profile-name h2 {
+    font-size: 23px;
+}
+
+.profile-name p {
+    margin: 7px 0;
+
+    color: #687389;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    background: #eef4ff;
+    color: #2463eb;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+}
+
+.edit-btn {
+    margin-left: auto;
+
+    padding: 11px 18px;
+
+    border: 1px solid #dce2eb;
+    border-radius: 8px;
+
+    background: white;
+
+    color: #2463eb;
+}
+
+
+/* SECTION */
+
+.section {
+    padding: 30px 0;
+
+    border-bottom: 1px solid #edf0f5;
+}
+
+.section h3 {
+    margin-bottom: 22px;
+}
+
+
+/* FORM */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.field label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #596579;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.field input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid #dfe4ec;
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+
+/* ACCOUNT */
+
+.account-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.account-info div {
+    padding: 18px;
+
+    background: #f8faff;
+
+    border-radius: 9px;
+}
+
+.account-info span {
+    display: block;
+
+    color: #687389;
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+.account-info strong {
+    font-size: 15px;
+}
+
+.active-status {
+    color: #16a66b;
+}
+
+
+/* BUTTONS */
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    padding-top: 25px;
+}
+
+.buttons button {
+    padding: 12px 22px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+}
+
+.cancel {
+    background: white;
+    border: 1px solid #dfe4ec;
+}
+
+.save {
+    background: #2463eb;
+    color: white;
+    border: none;
+}
