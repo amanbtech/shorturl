@@ -1,13 +1,13 @@
-const email = document.getElementById("email");
+const username = document.getElementById("username");
 const password = document.getElementById("password");
 const loginBtn = document.getElementById("loginBtn");
 loginBtn.addEventListener("click", async function () {
 
-    const emailValue = email.value;
+    const userValue = username.value;
     const passwordValue = password.value;
 
 
-    if (!emailValue || !passwordValue) {
+    if (!userValue || !passwordValue) {
         alert("Please enter email and password");
         return;
     }
@@ -25,7 +25,7 @@ loginBtn.addEventListener("click", async function () {
                 },
 
                 body: JSON.stringify({
-                    email: emailValue,
+                    username: userValue,
                     password: passwordValue
                 })
             }
