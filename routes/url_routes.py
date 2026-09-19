@@ -7,7 +7,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import RedirectResponse
 import smtplib
 from email.message import EmailMessage
-from schemas import Urls, UpdateUrl, verify_otp
+from schemas import Urls, UpdateUrl,forget, verify_otp
 from database import get_cursor, conn
 from auth import get_current_user
 from redis_client import r
@@ -411,19 +411,29 @@ def cleanup():
         "status": "success",
         "message": "Expired URL deleted"
     }
-
-@router.post("/forget")
-def forget():
-    # otp=otp_Genrate()
-    # r.set(email,otp,ex=300)
+@router.post("/sendttp")
+def sendttp(data:forget):
     msg=EmailMessage()
     msg["subject"]="your Shorturl_code"
     msg["From"]="amanbtech2526@gmail.com"
-    msg["To"]="dotone76@gmail.com"
+    msg["To"]=data.email
     msg.set_content(f"your otp is ")
     with smtplib.SMTP_SSL("smtp.gmail.com",465) as server:
         server.login("amanbtech2526@gmail.com","uchqraksazibsslk")
         server.send_message(msg)
+
+# @router.post("/forget")
+# def forget(email:str):
+#     # otp=otp_Genrate()
+#     # r.set(email,otp,ex=300)
+#     msg=EmailMessage()
+#     msg["subject"]="your Shorturl_code"
+#     msg["From"]="amanbtech2526@gmail.com"
+#     msg["To"]="dotone76@gmail.com"
+#     msg.set_content(f"your otp is ")
+#     with smtplib.SMTP_SSL("smtp.gmail.com",465) as server:
+#         server.login("amanbtech2526@gmail.com","uchqraksazibsslk")
+#         server.send_message(msg)
     # return {"message":"otp sent","otp":otp}
 # @router.post("/verify_otp")
 # # def verify_otp(otp_data:verify_otp):
