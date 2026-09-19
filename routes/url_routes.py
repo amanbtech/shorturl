@@ -419,10 +419,10 @@ def forget(data:forget):
         otp=otp_Genrate()
     except Exception:
         raise HTTPException(status_code=404,detail="error in otp")
-    try:
-        r.set(data.email, otp, ex=300)
-    except Exception:
-        raise HTTPException(status_code=404,detail="redis problem")
+    # try:
+    #     r.set(data.email, otp, ex=300)
+    # except Exception:
+    #     raise HTTPException(status_code=404,detail="redis problem")
 
     msg=EmailMessage()
     msg["subject"]="your Shorturl_code"
