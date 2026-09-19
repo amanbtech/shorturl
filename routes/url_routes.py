@@ -412,19 +412,19 @@ def cleanup():
         "message": "Expired URL deleted"
     }
 
-@router.post("/forget/{email}")
-def forget(email:str):
-    otp=otp_Genrate()
-    r.set(email,otp,ex=300)
+@router.post("/forget")
+def forget():
+    # otp=otp_Genrate()
+    # r.set(email,otp,ex=300)
     msg=EmailMessage()
     msg["subject"]="your Shorturl_code"
-    msg["FROM"]="amanbtech2526@gmail.com"
-    msg["To"]=email
-    msg.set_content(f"your otp is{otp}")
+    msg["From"]="amanbtech2526@gmail.com"
+    msg["To"]="dotone76@gmail.com"
+    msg.set_content(f"your otp is ")
     with smtplib.SMTP_SSL("smtp.gmail.com",465) as server:
         server.login("amanbtech2526@gmail.com","uchqraksazibsslk")
         server.send_message(msg)
-    return {"message":"otp sent","otp":otp}
+    # return {"message":"otp sent","otp":otp}
 # @router.post("/verify_otp")
 # # def verify_otp(otp_data:verify_otp):
 # #     gen_otp=(r.get(otp_data.email))

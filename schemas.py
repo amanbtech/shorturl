@@ -22,7 +22,7 @@ class Login(BaseModel):
 class UpdateUrl(BaseModel):
     original_url: str
 class forget(BaseModel):
-    email:str
+    # email:str
 class verify_otp(BaseModel):
     user_otp:int
     password_hash:str
