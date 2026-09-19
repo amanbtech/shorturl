@@ -411,48 +411,49 @@ def cleanup():
         "status": "success",
         "message": "Expired URL deleted"
     }
-@router.post("/sendttp")
-def sendttp(data:forget):
+
+
+@router.post("/forget")
+def forget(data:forget):
+    try:
+        otp=otp_Genrate()
+    except Exception:
+        raise HTTPException(status_code=404,detail="error in otp")
+    try:
+        r.set(data.email, otp, ex=300)
+    except Exception:
+        raise HTTPException(status_code=404,detail="redis problem")
+
     msg=EmailMessage()
     msg["subject"]="your Shorturl_code"
     msg["From"]="amanbtech2526@gmail.com"
     msg["To"]=data.email
-    msg.set_content(f"your otp is ")
-    with smtplib.SMTP_SSL("smtp.gmail.com",465) as server:
-        server.login("amanbtech2526@gmail.com","uchqraksazibsslk")
-        server.send_message(msg)
-
-# @router.post("/forget")
-# def forget(email:str):
-#     # otp=otp_Genrate()
-#     # r.set(email,otp,ex=300)
-#     msg=EmailMessage()
-#     msg["subject"]="your Shorturl_code"
-#     msg["From"]="amanbtech2526@gmail.com"
-#     msg["To"]="dotone76@gmail.com"
-#     msg.set_content(f"your otp is ")
-#     with smtplib.SMTP_SSL("smtp.gmail.com",465) as server:
-#         server.login("amanbtech2526@gmail.com","uchqraksazibsslk")
-#         server.send_message(msg)
-    # return {"message":"otp sent","otp":otp}
+    msg.set_content(f"your otp is {otp}")
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com",465) as server:
+            server.login("amanbtech2526@gmail.com","uchqraksazibsslk")
+            server.send_message(msg)
+    except Exception:
+        raise HTTPException(status_code=404,detail="error")
+    return {"message":"otp sent","otp":otp}
 # @router.post("/verify_otp")
-# # def verify_otp(otp_data:verify_otp):
-# #     gen_otp=(r.get(otp_data.email))
-# #     if gen_otp is None:
-# #         return {"msg":"otp expired"}
-# #     genr_otp=int(gen_otp)
-# #     if otp_data.user_otp!=genr_otp:
-# #         return "otp is not right"
-# #     cursor = get_cursor()
-# #
-# #     hashed_password= bcrypt.hashpw(
-# #         otp_data.password_hash.encode(),
-# #         bcrypt.gensalt()
-# #     )
-# #     cursor.execute("UPDATE url_shortener SET password_hash=? WHERE email=?,(hashed_password.decode(),otp_data.email)")
-# #     return{
-# #         "msg":"password chnaged"
-# #     }
+# def verify_otp(otp_data:verify_otp):
+#     gen_otp=(r.get(otp_data.email))
+#     if gen_otp is None:
+#         return {"msg":"otp expired"}
+#     genr_otp=int(gen_otp)
+#     if otp_data.user_otp!=genr_otp:
+#         return "otp is not right"
+#     cursor = get_cursor()
+#
+#     hashed_password= bcrypt.hashpw(
+#         otp_data.password_hash.encode(),
+#         bcrypt.gensalt()
+#     )
+#     cursor.execute("UPDATE url_shortener SET password_hash=? WHERE email=?,(hashed_password.decode(),otp_data.email)")
+#     return{
+#         "msg":"password chnaged"
+#     }
 
 # @router.get("/dashboard")
 # def dashboard(user=Depends(get_current_user)):
