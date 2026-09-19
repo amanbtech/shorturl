@@ -15,7 +15,7 @@ class Signup(BaseModel):
 
 
 class Login(BaseModel):
-    email: str
+    username: str
     password_hash: str
 
 

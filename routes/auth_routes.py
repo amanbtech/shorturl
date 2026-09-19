@@ -65,10 +65,7 @@ def login(user: Login):
 
     cursor = get_cursor()
 
-    cursor.execute(
-        "SELECT * FROM users WHERE username=?",
-        (user.username,)
-    )
+    cursor.execute("SELECT * FROM users WHERE username=?",(user.username,))
 
     data = cursor.fetchone()
 
