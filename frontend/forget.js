@@ -1,4 +1,5 @@
 const email=document.getElementById("email")
+
 const btn=document.getElementById("otp")
 btn.addEventListener("click",async function(){
     const emailValue=email.value;
@@ -17,6 +18,7 @@ btn.addEventListener("click",async function(){
                     email: emailValue
                 })
             })
+    sessionStorage.setItem("email",emailValue);
 
 
 

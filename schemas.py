@@ -24,6 +24,9 @@ class UpdateUrl(BaseModel):
 class forget(BaseModel):
     email:str
 class verify_otp(BaseModel):
-    user_otp:int
-    password_hash:str
     email:str
+    user_otp:int
+class resetpassword(BaseModel):
+    email:str
+    password:str
+    confirmPassword:str
